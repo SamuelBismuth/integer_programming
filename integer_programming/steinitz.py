@@ -60,7 +60,7 @@ def steinitz_ip(c:np.ndarray, A:np.ndarray, b:np.ndarray)->str:
         return 'Not feasible'
 
 
-def setup(A:np.ndarray, b:np.ndarray, c:np.ndarray, THREADS=False, MUTLIPROCESSING=False)->nx.DiGraph:
+def setup(A:np.ndarray, b:np.ndarray, c:np.ndarray, THREADS=False, MUTLIPROCESSING=True)->nx.DiGraph:
     '''
     This method set up all the variable requested by the algorithm.
     '''
@@ -126,7 +126,7 @@ def run_multiprocessing(func, n_processors, data):
         return pool.starmap(func, data)
 
 
-def build_graph(fancy_S:np.ndarray, n:int, A:np.ndarray, G:nx.digraph, upper_bound:int, c:np.ndarray, THREADS=False, MUTLIPROCESSING=False):
+def build_graph(fancy_S:np.ndarray, n:int, A:np.ndarray, G:nx.digraph, upper_bound:int, c:np.ndarray, THREADS=False, MUTLIPROCESSING=True):
     '''
     This method create the digraph used to resolve the IP.
     '''
